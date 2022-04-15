@@ -17,7 +17,7 @@ resource "aws_instance" "Demo_Server" {
 resource "aws_instance" "redhat_servers" {
   count                  = 2
   ami                    = var.redhatami
-  instance_type          = "t2.micro"
+  instance_type          = "t2.medium"
   vpc_security_group_ids = [aws_security_group.demo_sg.id]
   subnet_id              = element(aws_subnet.subnets.*.id, count.index)
   key_name               = var.key_name
